@@ -6,4 +6,14 @@ import { Component } from '@angular/core';
   templateUrl: './login.html',
   styles: 'p { color: red; }',
 })
-export class Login {}
+export class Login {
+  clickHandler() {
+    console.log('login button clicked');
+
+    this.anotherClickHandler();
+  }
+
+  anotherClickHandler() {
+    console.log('another login button clicked');
+  }
+}
