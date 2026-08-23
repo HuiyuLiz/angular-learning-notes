@@ -5,3 +5,10 @@
 <button (click)="handleIncrement()">Increment</button>
 <button (click)="handleDecrement()">Decrement</button>
 <button (click)="handleReset()">Reset</button>
+
+<hr/>
+<div>username:{{username}}</div>
+<input value="{{username}}" (input)="handleUsernameChange($event)" type="text" placeholder="Enter your username">
+<button (click)="setDefaultUsername()">Set User Name</button>
+<input #usernameInput type="text" placeholder="Enter your username">
+<button (click)="handleUsernameByTemplateRef(usernameInput.value)">Get User Name</button>

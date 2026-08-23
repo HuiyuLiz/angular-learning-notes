@@ -11,6 +11,7 @@ export class App {
   protected readonly title = signal('angular-learning-notes');
   version=21
   count=0
+  username=""
 
   handleIncrement() {
     this.count++;
@@ -22,5 +23,17 @@ export class App {
 
   handleReset() {
     this.count=0;
+  }
+
+  handleUsernameChange(event: Event) {
+    this.username=(event.target as HTMLInputElement).value;
+  }
+
+  setDefaultUsername() {
+    this.username='John Doe';
+  }
+
+  handleUsernameByTemplateRef(username: string) {
+    console.log('username',username);
   }
 }
