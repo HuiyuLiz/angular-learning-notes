@@ -12,3 +12,13 @@
 <button (click)="setDefaultUsername()">Set User Name</button>
 <input #usernameInput type="text" placeholder="Enter your username">
 <button (click)="handleUsernameByTemplateRef(usernameInput.value)">Get User Name</button>
+
+<hr/>
+<div>If Else Conditions</div>
+@if(isVisible) {
+  <div style="color: green; width: 100px; height: 100px; background-color: green;">Visible</div>
+} @else {
+  <div style="width: 100px; height: 100px; visibility: hidden;">Not Visible</div>
+}
+<button (click)="handleToggleVisibility()">{{isVisible ? 'Hide' : 'Show'}}</button>
+

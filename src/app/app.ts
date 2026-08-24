@@ -12,6 +12,7 @@ export class App {
   version=21
   count=0
   username=""
+  isVisible=false
 
   handleIncrement() {
     this.count++;
@@ -35,5 +36,9 @@ export class App {
 
   handleUsernameByTemplateRef(username: string) {
     console.log('username',username);
+  }
+
+  handleToggleVisibility() {
+    this.isVisible=!this.isVisible;
   }
 }
