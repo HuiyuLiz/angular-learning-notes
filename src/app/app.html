@@ -22,3 +22,25 @@
 }
 <button (click)="handleToggleVisibility()">{{isVisible ? 'Hide' : 'Show'}}</button>
 
+<hr/>
+
+<div>Switch Statement</div>
+@switch(color){
+  @case('red'){
+    <div style="color: red; width: 100px; height: 100px; background-color: red;">Red</div>
+  }
+  @case('green'){
+    <div style="color: green; width: 100px; height: 100px; background-color: green;">Green</div>
+  }
+  @case('blue'){
+    <div style="color: blue; width: 100px; height: 100px; background-color: blue;">Blue</div>
+  }
+  @default{
+    <div>No color selected</div>
+  }
+}
+
+<button (click)="handleChangeColor('red')">Red</button>
+<button (click)="handleChangeColor('green')">Green</button>
+<button (click)="handleChangeColor('blue')">Blue</button>
+<button (click)="handleChangeColor('')">No Color</button>

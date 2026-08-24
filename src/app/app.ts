@@ -13,6 +13,7 @@ export class App {
   count=0
   username=""
   isVisible=false
+  color='red'
 
   handleIncrement() {
     this.count++;
@@ -40,5 +41,9 @@ export class App {
 
   handleToggleVisibility() {
     this.isVisible=!this.isVisible;
+  }
+
+  handleChangeColor(color: string) {
+    this.color=color;
   }
 }
