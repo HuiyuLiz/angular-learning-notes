@@ -14,6 +14,12 @@ export class App {
   username=""
   isVisible=false
   color='red'
+  fruits=['Apple','Banana','Lemon']
+  users=[
+    {id:1,name:'Amy'},
+    {id:2,name:'Ben'},
+    {id:3,name:'Cindy'}
+  ]
 
   handleIncrement() {
     this.count++;

@@ -6,41 +6,50 @@
 <button (click)="handleDecrement()">Decrement</button>
 <button (click)="handleReset()">Reset</button>
 
-<hr/>
+<hr />
 <div>username:{{username}}</div>
 <input value="{{username}}" (input)="handleUsernameChange($event)" type="text" placeholder="Enter your username">
 <button (click)="setDefaultUsername()">Set User Name</button>
 <input #usernameInput type="text" placeholder="Enter your username">
 <button (click)="handleUsernameByTemplateRef(usernameInput.value)">Get User Name</button>
 
-<hr/>
+<hr />
 <div>If Else Conditions</div>
 @if(isVisible) {
-  <div style="color: green; width: 100px; height: 100px; background-color: green;">Visible</div>
+<div style="color: green; width: 100px; height: 100px; background-color: green;">Visible</div>
 } @else {
-  <div style="width: 100px; height: 100px; visibility: hidden;">Not Visible</div>
+<div style="width: 100px; height: 100px; visibility: hidden;">Not Visible</div>
 }
 <button (click)="handleToggleVisibility()">{{isVisible ? 'Hide' : 'Show'}}</button>
 
-<hr/>
+<hr />
 
 <div>Switch Statement</div>
 @switch(color){
-  @case('red'){
-    <div style="color: red; width: 100px; height: 100px; background-color: red;">Red</div>
-  }
-  @case('green'){
-    <div style="color: green; width: 100px; height: 100px; background-color: green;">Green</div>
-  }
-  @case('blue'){
-    <div style="color: blue; width: 100px; height: 100px; background-color: blue;">Blue</div>
-  }
-  @default{
-    <div>No color selected</div>
-  }
+@case('red'){
+<div style="color: red; width: 100px; height: 100px; background-color: red;">Red</div>
+}
+@case('green'){
+<div style="color: green; width: 100px; height: 100px; background-color: green;">Green</div>
+}
+@case('blue'){
+<div style="color: blue; width: 100px; height: 100px; background-color: blue;">Blue</div>
+}
+@default{
+<div>No color selected</div>
+}
 }
 
 <button (click)="handleChangeColor('red')">Red</button>
 <button (click)="handleChangeColor('green')">Green</button>
 <button (click)="handleChangeColor('blue')">Blue</button>
 <button (click)="handleChangeColor('')">No Color</button>
+
+<hr />
+@for(fruit of fruits;track fruit){
+<div>{{fruit}}</div>
+}
+
+@for(user of users;track user.id;let i=$index,f=$first){
+  <div [style.background]="f ? 'red' : 'gray'">{{i+1}} {{user.name}}</div>
+}
