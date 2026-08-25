@@ -53,3 +53,11 @@
 @for(user of users;track user.id;let i=$index,f=$first){
   <div [style.background]="f ? 'red' : 'gray'">{{i+1}} {{user.name}}</div>
 }
+
+<hr />
+<div> Click, Input, mouse, focus, and blue events</div>
+<div
+ (mouseenter)="handleEvent($event)"
+ (mouseleave)="handleEvent($event)"
+style="color: white; width: 100px; height: 100px; background-color: gray;"></div>
+<input type="text" name="name" (focus)="handleEvent($event)" (input)="handleEvent($event)"/>

@@ -52,4 +52,9 @@ export class App {
   handleChangeColor(color: string) {
     this.color=color;
   }
+
+  handleEvent(event:Event){
+    console.log((event.type))
+    console.log((event.target as HTMLInputElement).value)
+  }
 }
