@@ -61,3 +61,7 @@
  (mouseleave)="handleEvent($event)"
 style="color: white; width: 100px; height: 100px; background-color: gray;"></div>
 <input type="text" name="name" (focus)="handleEvent($event)" (input)="handleEvent($event)"/>
+<hr />
+<div>Signal</div>
+<div>{{signalCount ()}}</div>
+<button (click)="incrementSignalCount()">Increment</button>

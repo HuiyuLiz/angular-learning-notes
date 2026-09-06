@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, effect, signal } from '@angular/core';
 import { Login } from './login/login';
 
 @Component({
@@ -20,6 +20,14 @@ export class App {
     {id:2,name:'Ben'},
     {id:3,name:'Cindy'}
   ]
+  signalCount =signal(10)
+
+  constructor(){
+    effect(()=>{
+      console.log('count',this.count)
+      console.log('signalCount ',this.signalCount ())
+    })
+  }
 
   handleIncrement() {
     this.count++;
@@ -56,5 +64,9 @@ export class App {
   handleEvent(event:Event){
     console.log((event.type))
     console.log((event.target as HTMLInputElement).value)
+  }
+
+  incrementSignalCount (){
+    this.signalCount .set(this.signalCount ()+1)
   }
 }
