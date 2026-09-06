@@ -1,4 +1,4 @@
-import { Component, effect, signal } from '@angular/core';
+import { Component, computed, effect, signal, WritableSignal,Signal } from '@angular/core';
 import { Login } from './login/login';
 
 @Component({
@@ -21,6 +21,8 @@ export class App {
     {id:3,name:'Cindy'}
   ]
   signalCount =signal(10)
+  num:WritableSignal<number>=signal(10)
+  doubled:Signal<number> = computed(()=>this.num()*2)
 
   constructor(){
     effect(()=>{
@@ -68,5 +70,9 @@ export class App {
 
   incrementSignalCount (){
     this.signalCount .set(this.signalCount ()+1)
+  }
+
+  increaseByTen(){
+    this.num.update(val=>val+10)
   }
 }
