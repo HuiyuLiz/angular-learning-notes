@@ -69,3 +69,12 @@ style="color: white; width: 100px; height: 100px; background-color: gray;"></div
 <div>num:{{num()}}</div>
 <div>doubled:{{doubled()}}</div>
 <button  (click)="increaseByTen()">+10</button>
+<hr/>
+<div>Effect:{{effectCount()}}</div>
+@if(displayHeading()){
+  <div style="background-color: yellow;">Display Heading</div>
+}@else{
+  <div>Hide Heading</div>
+}
+<button (click)="effectCount.set(effectCount()+1)">effct count + 1</button>
+

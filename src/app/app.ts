@@ -23,11 +23,20 @@ export class App {
   signalCount =signal(10)
   num:WritableSignal<number>=signal(10)
   doubled:Signal<number> = computed(()=>this.num()*2)
+  effectCount = signal(0)
+  displayHeading=signal(false)
 
   constructor(){
     effect(()=>{
-      console.log('count',this.count)
-      console.log('signalCount ',this.signalCount ())
+      if(this.effectCount()===2){
+        this.displayHeading.set(true)
+
+        setTimeout(() => {
+          this.displayHeading.set(false)
+        }, 2000);
+      }else{
+        this.displayHeading.set(false)
+      }
     })
   }
 
