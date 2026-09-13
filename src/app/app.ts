@@ -1,83 +1,17 @@
-import { Component, computed, effect, signal, WritableSignal,Signal } from '@angular/core';
-import { Login } from './login/login';
+import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
-  imports: [Login],
+  imports: [FormsModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('angular-learning-notes');
-  version=21
-  count=0
-  username=""
-  isVisible=false
-  color='red'
-  fruits=['Apple','Banana','Lemon']
-  users: { id: number; name: string }[]=[]
-  signalCount =signal(10)
-  num:WritableSignal<number>=signal(10)
-  doubled:Signal<number> = computed(()=>this.num()*2)
-  effectCount = signal(0)
-  displayHeading=signal(false)
+ name=""
 
-  constructor(){
-    effect(()=>{
-      if(this.effectCount()===2){
-        this.displayHeading.set(true)
-
-        setTimeout(() => {
-          this.displayHeading.set(false)
-        }, 2000);
-      }else{
-        this.displayHeading.set(false)
-      }
-    })
-  }
-
-  handleIncrement() {
-    this.count++;
-  }
-
-  handleDecrement() {
-    this.count--;
-  }
-
-  handleReset() {
-    this.count=0;
-  }
-
-  handleUsernameChange(event: Event) {
-    this.username=(event.target as HTMLInputElement).value;
-  }
-
-  setDefaultUsername() {
-    this.username='John Doe';
-  }
-
-  handleUsernameByTemplateRef(username: string) {
-    console.log('username',username);
-  }
-
-  handleToggleVisibility() {
-    this.isVisible=!this.isVisible;
-  }
-
-  handleChangeColor(color: string) {
-    this.color=color;
-  }
-
-  handleEvent(event:Event){
-    console.log((event.type))
-    console.log((event.target as HTMLInputElement).value)
-  }
-
-  incrementSignalCount (){
-    this.signalCount .set(this.signalCount ()+1)
-  }
-
-  increaseByTen(){
-    this.num.update(val=>val+10)
-  }
+ changeName(event:Event){
+  const value = (event.target as HTMLInputElement).value
+  this.name = value;
+ }
 }
