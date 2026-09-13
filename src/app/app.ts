@@ -15,11 +15,7 @@ export class App {
   isVisible=false
   color='red'
   fruits=['Apple','Banana','Lemon']
-  users=[
-    {id:1,name:'Amy'},
-    {id:2,name:'Ben'},
-    {id:3,name:'Cindy'}
-  ]
+  users: { id: number; name: string }[]=[]
   signalCount =signal(10)
   num:WritableSignal<number>=signal(10)
   doubled:Signal<number> = computed(()=>this.num()*2)

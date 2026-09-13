@@ -50,8 +50,10 @@
 <div>{{fruit}}</div>
 }
 
-@for(user of users;track user.id;let i=$index,f=$first){
+@for(user of users; track user.id; let i=$index, f=$first){
   <div [style.background]="f ? 'red' : 'gray'">{{i+1}} {{user.name}}</div>
+} @empty {
+  <div>No data.</div>
 }
 
 <hr />
